@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Light Lounge Podcast</title>
@@ -28,8 +26,16 @@
     header {
       background: var(--green);
       color: white;
-      padding: 1rem;
+      padding-bottom: 1rem;
       text-align: center;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0;
     }
 
     nav {
@@ -69,7 +75,8 @@
       text-decoration: none;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 0.5rem;
       margin: 0.5rem 0;
@@ -87,14 +94,15 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <a href="index.html">
-      <img src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    </a>
-    <h1>The Light Lounge</h1>
-    <p>A podcast for the faithful and curious</p>
-  </header>
+  <a href="index.html">
+    <img class="banner-img" src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" />
+  </a>
+  <h1>The Light Lounge</h1>
+  <p>A podcast for the faithful and curious</p>
+</header>
 
 
  <nav>
