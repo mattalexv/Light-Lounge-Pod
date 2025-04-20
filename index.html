@@ -109,6 +109,10 @@
   <a href="Newsletter.html">Newsletter</a> <!-- Link to the Newsletter page (you'll need to create this page) -->
   <a href="Contact.html">Contact</a> <!-- Link to the Contact page -->
 </nav>
+<section id="verse-of-the-day">
+  <h2>Verse of the Day</h2>
+  <blockquote id="bibleVerse" style="font-style: italic; margin: 1rem 0;">Loading verse...</blockquote>
+</section>
 
 <section id="episodes">
   <h2>Latest Episodes</h2>
@@ -136,5 +140,28 @@
       <a href="#">Substack</a>
     </div>
   </footer>
+  <script>
+  async function loadVerseOfTheDay() {
+    const today = new Date().toISOString().slice(0, 10);
+    const stored = JSON.parse(localStorage.getItem('verseOfTheDay'));
+
+    if (stored && stored.date === today) {
+      document.getElementById('bibleVerse').textContent = stored.text;
+    } else {
+      try {
+        const res = await fetch("https://labs.bible.org/api/?passage=random&type=json");
+        const data = await res.json();
+        const verse = `${data[0].bookname} ${data[0].chapter}:${data[0].verse} — "${data[0].text}"`;
+        document.getElementById('bibleVerse').textContent = verse;
+        localStorage.setItem('verseOfTheDay', JSON.stringify({ date: today, text: verse }));
+      } catch (err) {
+        document.getElementById('bibleVerse').textContent = "Couldn't load verse.";
+      }
+    }
+  }
+
+  loadVerseOfTheDay();
+</script>
+
 </body>
 </html>
