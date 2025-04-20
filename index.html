@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<head>
+<head><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Light Lounge Podcast</title>
@@ -27,36 +26,24 @@
     }
 
     header {
-      width: 100%;
-      padding: 0;
+      background: var(--green);
+      color: white;
+      padding: 1rem;
       text-align: center;
-      position: relative;
     }
 
-    header img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
+    nav {
+      background: var(--orange-red);
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
     }
 
-    header h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    nav a {
       color: white;
-      font-size: 2rem;
-      z-index: 10;
-    }
-
-    header p {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: 1.2rem;
-      z-index: 10;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
     }
 
     section {
@@ -103,38 +90,29 @@
 <body>
   <header>
     <a href="index.html">
-      <img src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" />
+      <img src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" style="max-width: 100%; height: auto; border-radius: 8px;" />
     </a>
-  
+    <h1>The Light Lounge</h1>
+    <p>A podcast for the faithful and curious</p>
   </header>
-</body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#episodes">Episodes</a>
-    <a href="#segments">Segments</a>
-    <a href="#newsletter">Newsletter</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <section id="latest">
-    <h2>Latest Episode</h2>
-    <p>Listen to the newest drop from River Never Dries:</p>
-    <audio controls>
-      <source src="episode1.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-    </audio>
-  </section>
+
+ <nav>
+  <a href="about.html">About</a> <!-- Link to the About page -->
+  <a href="segments.html">Segments</a> <!-- Link to the Segments page (you'll need to create this page) -->
+  <a href="newsletter.html">Newsletter</a> <!-- Link to the Newsletter page (you'll need to create this page) -->
+  <a href="contact.html">Contact</a> <!-- Link to the Contact page -->
+</nav>
+
 
   <section id="about">
     <h2>About</h2>
-    <p>Welcome to The Light Loung Podcast, a podcast rooted in the Catholic faith, created to inspire, challenge, and speak truth into the lives of teens. Every episode is made with prayer, love, and a mission to help you stay grounded in Christ in a world that constantly shifts.</p>
+    <p>Welcome to River Never Dries, a podcast rooted in the Catholic faith, created to inspire, challenge, and speak truth into the lives of teens. Every episode is made with prayer, love, and a mission to help you stay grounded in Christ in a world that constantly shifts.</p>
   </section>
 
   <section id="segments">
     <h2>Segments</h2>
     <p><strong>Scripture Spotlight:</strong> Deep dives into the Word of God.</p>
-    <p><strong>Teen Testimony:</strong> Real stories of faith, struggle, and victory.</p>
-    <p><strong>Ask Me Anything:</strong> Q&A segments based on your questions.</p>
   </section>
 
   <section id="episodes">
@@ -167,7 +145,7 @@
 
 
   <footer>
-    <p>&copy; 2025 River Never Dries</p>
+    <p>&copy; 2025 The Light Lounge </p>
     <div class="socials">
       <a href="#">Spotify</a>
       <a href="#">Apple Podcasts</a>
