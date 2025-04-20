@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>River Never Dries Podcast</title>
+  <title>The Light Lounge Podcast</title>
   <style>
     :root {
       --green: #28a745;
@@ -89,7 +90,11 @@
 </head>
 <body>
   <header>
-    <h1>River Never Dries</h1>
+    <!-- Banner Image Added Here -->
+    <a href="index.html">
+      <img src="the-light-lounge-banner.png" alt="The Light Lounge Podcast Banner" style="max-width: 100%; height: auto;" />
+    </a>
+    <h1>The Light Lounge</h1>
     <p>A podcast for the faithful and curious</p>
   </header>
   <nav>
@@ -122,13 +127,12 @@
   </section>
 
   <section id="episodes">
-    <h2>All Episodes</h2>
-    <ul>
-      <li>Episode 1 – Staying Rooted in Your Faith</li>
-      <li>Episode 2 – Dealing with Doubt</li>
-      <li>Episode 3 – Finding God in Daily Life</li>
-    </ul>
-  </section>
+  <h2>All Episodes</h2>
+  <!-- start feedwind code -->
+  <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" preloader-text="Loading" data-fw-param="172454/"></script>
+  <!-- end feedwind code -->
+</section>
+
 
   <section id="newsletter">
     <h2>Subscribe to Our Newsletter</h2>
@@ -139,16 +143,17 @@
     </form>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Have questions, feedback, or want to collaborate? Reach out below:</p>
-    <form>
-      <input type="text" placeholder="Your name" required />
-      <input type="email" placeholder="Your email" required />
-      <textarea placeholder="Your message" rows="4" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+ <section id="contact">
+  <h2>Contact</h2>
+  <p>Have questions, feedback, or want to collaborate? Reach out below:</p>
+  <form action="https://formspree.io/f/xvgkebyl" method="POST">
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Your email" required />
+    <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
 
   <footer>
     <p>&copy; 2025 River Never Dries</p>
