@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Light Lounge Podcast</title>
@@ -27,24 +27,36 @@
     }
 
     header {
-      background: var(--green);
-      color: white;
-      padding: 1rem;
+      width: 100%;
+      padding: 0;
       text-align: center;
+      position: relative;
     }
 
-    nav {
-      background: var(--orange-red);
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
+    header img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
-    nav a {
+    header h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
+      font-size: 2rem;
+      z-index: 10;
+    }
+
+    header p {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.2rem;
+      z-index: 10;
     }
 
     section {
@@ -90,13 +102,13 @@
 </head>
 <body>
   <header>
-    <!-- Banner Image Added Here -->
     <a href="index.html">
-      <img src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" style="max-width: 100%; height: auto;" />
+      <img src="https://github.com/mattalexv/Light-Lounge-Pod/blob/main/Podcast%20Banner.png?raw=true" alt="The Light Lounge Podcast Banner" />
     </a>
     <h1>The Light Lounge</h1>
     <p>A podcast for the faithful and curious</p>
   </header>
+</body>
   <nav>
     <a href="#about">About</a>
     <a href="#episodes">Episodes</a>
