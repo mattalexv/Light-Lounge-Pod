@@ -113,22 +113,56 @@
   <h2>Verse of the Day</h2>
   <blockquote id="bibleVerse" style="font-style: italic; margin: 1rem 0;">Loading verse...</blockquote>
 </section>
+
+
   <section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
   <h2 style="color: #ff5733; font-size: 2rem; margin-bottom: 1rem;">Prayer Request</h2>
-  <p style="margin-bottom: 1rem;">Submit a prayer request below. Your message will appear here so others can lift you up too.</p>
+  <p style="margin-bottom: 1rem;">Submit a prayer request below. It will be privately added to our prayer list.</p>
 
   <form id="prayerForm" style="max-width: 500px; margin: 0 auto;">
     <textarea id="prayerInput" rows="4" placeholder="Type your prayer request here..." required style="width: 100%; padding: 1rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
     <br>
     <button type="submit" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">Send Prayer</button>
+    <p id="confirmationMsg" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received.</p>
   </form>
-
-  <div id="prayerList" style="margin-top: 2rem; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
-    <h3 style="margin-bottom: 1rem;">Prayer Wall</h3>
-    <ul id="prayers" style="list-style: none; padding: 0;"></ul>
-  </div>
 </section>
 
+<section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
+  <h2 style="color: #ff5733; font-size: 2rem; margin-bottom: 1rem;">Prayer Request</h2>
+  <p style="margin-bottom: 1rem;">Submit a prayer request below. We’ll be lifting you up in prayer ❤️</p>
+
+  <form id="prayerForm" style="max-width: 500px; margin: 0 auto;">
+    <textarea id="prayerInput" rows="4" placeholder="Type your prayer request here..." required style="width: 100%; padding: 1rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
+    <br>
+    <button type="submit" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">Send Prayer</button>
+    <p id="confirmation" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received.</p>
+  </form>
+</section>
+
+<script>
+  document.getElementById("prayerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const input = document.getElementById("prayerInput");
+    const prayer = input.value.trim();
+
+    if (prayer) {
+      fetch("YOUR_WEBHOOK_URL_HERE", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "prayer=" + encodeURIComponent(prayer)
+      });
+
+      input.value = "";
+      document.getElementById("confirmation").style.display = "block";
+    }
+  });
+</script>
+
+
+  
 <script>
   document.getElementById("prayerForm").addEventListener("submit", function(e) {
     e.preventDefault();
