@@ -115,85 +115,46 @@
 </section>
 
 
-  <section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
+ <section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
   <h2 style="color: #ff5733; font-size: 2rem; margin-bottom: 1rem;">Prayer Request</h2>
-  <p style="margin-bottom: 1rem;">Submit a prayer request below. It will be privately added to our prayer list.</p>
+  <p style="margin-bottom: 1rem;">Submit a prayer request below. It will be privately stored and lifted up by our team ❤️</p>
 
   <form id="prayerForm" style="max-width: 500px; margin: 0 auto;">
     <textarea id="prayerInput" rows="4" placeholder="Type your prayer request here..." required style="width: 100%; padding: 1rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
     <br>
     <button type="submit" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">Send Prayer</button>
-    <p id="confirmationMsg" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received.</p>
-  </form>
-</section>
-
-<section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
-  <h2 style="color: #ff5733; font-size: 2rem; margin-bottom: 1rem;">Prayer Request</h2>
-  <p style="margin-bottom: 1rem;">Submit a prayer request below. We’ll be lifting you up in prayer ❤️</p>
-
-  <form id="prayerForm" style="max-width: 500px; margin: 0 auto;">
-    <textarea id="prayerInput" rows="4" placeholder="Type your prayer request here..." required style="width: 100%; padding: 1rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
-    <br>
-    <button type="submit" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">Send Prayer</button>
-    <p id="confirmation" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received.</p>
+    <p id="confirmation" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received 🙏</p>
   </form>
 </section>
 
 <script>
   document.getElementById("prayerForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const input = document.getElementById("prayerInput");
-    const prayer = input.value.trim();
+
+    const prayer = document.getElementById("prayerInput").value.trim();
 
     if (prayer) {
-      fetch("YOUR_WEBHOOK_URL_HERE", {
+      // Replace with your actual Google Form URL
+      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScB2Nbgc-XxrP-izvt7Y_HUWLejYN9Z_6aSftv7SxKgZS_40Q/formResponse";
+
+      // Replace 'entry.123456789' with the actual entry field from your form
+      const formData = new FormData();
+      formData.append("entry.123456789", prayer);
+
+      fetch(formURL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "prayer=" + encodeURIComponent(prayer)
+        body: formData
       });
 
-      input.value = "";
+      // Clear + confirm
+      document.getElementById("prayerInput").value = "";
       document.getElementById("confirmation").style.display = "block";
     }
   });
 </script>
 
-
   
-<script>
-  document.getElementById("prayerForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const input = document.getElementById("prayerInput");
-    const prayer = input.value.trim();
-
-    if (prayer) {
-      // Show on the wall
-      const list = document.getElementById("prayers");
-      const li = document.createElement("li");
-      li.textContent = prayer;
-      li.style.padding = "0.75rem";
-      li.style.marginBottom = "0.5rem";
-      li.style.background = "#f0f0f0";
-      li.style.borderRadius = "6px";
-      list.prepend(li);
-      
-      // Send to Google Sheet
-      fetch("WEBHOOK_URL_HERE", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "prayer=" + encodeURIComponent(prayer)
-      });
-
-      input.value = "";
-    }
-  });
-</script>
 
 
 <section id="episodes">
