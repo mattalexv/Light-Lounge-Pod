@@ -115,44 +115,25 @@
 </section>
 
 
- <section id="prayer-request" style="background: #fff8f0; padding: 2rem; text-align: center; border-top: 4px solid #ff5733; margin-top: 3rem;">
-  <h2 style="color: #ff5733; font-size: 2rem; margin-bottom: 1rem;">Prayer Request</h2>
-  <p style="margin-bottom: 1rem;">Submit a prayer request below. It will be privately stored and lifted up by our team ❤️</p>
+<section id="prayer-request" style="background: #fffaf5; padding: 3rem 1rem; text-align: center; border-top: 5px solid #ff7043; margin-top: 4rem;">
+  <h2 style="color: #ff7043; font-size: 2.5rem; margin-bottom: 1rem;">Prayer Request</h2>
+  <p style="font-size: 1.1rem; color: #444; margin-bottom: 2rem;">
+    Submit your prayer below. It goes straight to our prayer list — we’ll lift you up!
+  </p>
 
-  <form id="prayerForm" style="max-width: 500px; margin: 0 auto;">
-    <textarea id="prayerInput" rows="4" placeholder="Type your prayer request here..." required style="width: 100%; padding: 1rem; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
-    <br>
-    <button type="submit" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">Send Prayer</button>
-    <p id="confirmation" style="margin-top: 1rem; color: #28a745; display: none;">Thank you! Your prayer has been received 🙏</p>
-  </form>
+  <div style="max-width: 700px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;">
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLScB2Nbgc-XxrP-izvt7Y_HUWLejYN9Z_6aSftv7SxKgZS_40Q/viewform?embedded=true" 
+      width="100%" 
+      height="700" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0"
+      style="border: none;">
+      Loading…
+    </iframe>
+  </div>
 </section>
-
-<script>
-  document.getElementById("prayerForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const prayer = document.getElementById("prayerInput").value.trim();
-
-    if (prayer) {
-      // Replace with your actual Google Form URL
-      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScB2Nbgc-XxrP-izvt7Y_HUWLejYN9Z_6aSftv7SxKgZS_40Q/formResponse";
-
-      // Replace 'entry.123456789' with the actual entry field from your form
-      const formData = new FormData();
-      formData.append("entry.123456789", prayer);
-
-      fetch(formURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      });
-
-      // Clear + confirm
-      document.getElementById("prayerInput").value = "";
-      document.getElementById("confirmation").style.display = "block";
-    }
-  });
-</script>
 
   
 
